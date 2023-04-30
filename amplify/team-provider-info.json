@@ -1,0 +1,26 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gplatesnextweb-staging-163146-authRole",
+      "UnauthRoleArn": "arn:aws:iam::129471412038:role/amplify-gplatesnextweb-staging-163146-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::129471412038:role/amplify-gplatesnextweb-staging-163146-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+      "UnauthRoleName": "amplify-gplatesnextweb-staging-163146-unauthRole",
+      "StackName": "amplify-gplatesnextweb-staging-163146",
+      "StackId": "arn:aws:cloudformation:us-east-2:129471412038:stack/amplify-gplatesnextweb-staging-163146/7fcce370-e774-11ed-aebb-063e53c14a9d",
+      "AmplifyAppId": "d2mryqjz9rhl32"
+    },
+    "categories": {
+      "auth": {
+        "gplatesnextweb": {}
+      },
+      "storage": {
+        "s3gplatesnextwebstoragefeatures": {}
+      },
+      "function": {
+        "test": {}
+      }
+    }
+  }
+}

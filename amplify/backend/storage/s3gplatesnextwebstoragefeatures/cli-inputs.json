@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3gplatesnextwebstoragefeatures",
+  "bucketName": "gplates-next-web-storage-features",
+  "policyUUID": "e1696ddb",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
