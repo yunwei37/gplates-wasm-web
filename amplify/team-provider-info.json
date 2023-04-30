@@ -20,6 +20,9 @@
       },
       "function": {
         "test": {}
+      },
+      "api": {
+        "gplatesnextweb": {}
       }
     }
   }
