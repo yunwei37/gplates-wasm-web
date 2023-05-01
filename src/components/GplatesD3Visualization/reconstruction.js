@@ -168,7 +168,6 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
                         .attr("cx", function (d) { return projection(d)[0]; })
                         .attr("cy", function (d) { return projection(d)[1]; })
                 } else {
-                    var circle = d3.geo.circle();
                     geometryLayer.selectAll(".pathPoint").remove();
                     reconstructedPoints.forEach(function (d) {
                         drawPoint(d, scale0 / zoom.scale());
@@ -191,7 +190,6 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
         d3.json(url, function (error, data) {
             $("#raw-data").html('<strong>Returned Raw Data:</strong> <pre>' + JSON.stringify(data, undefined, 4) + '</pre>');
             geometryLayer.selectAll("*").remove();
-            var circle = d3.geo.circle();
             d3.selectAll(".pathPoint").remove();
             reconstructedPoints = [];
             data.coordinates.forEach(function (d) {
@@ -203,7 +201,7 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
 
     function drawPoint(d, angle) {
         var _angle = angle || 1;
-        if (projName == "orthographic") {
+        if (projName === "orthographic") {
             var circle = d3.geo.circle();
             geometryLayer.append("path")
                 //.datum({type: "Point", coordinates: [d[1], d[0]]})
@@ -246,11 +244,11 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
             }
             $("#raw-data").html('<strong>Returned Raw Data:</strong> <pre>' + JSON.stringify(data, undefined, 4) + '</pre>');
             geometryLayer.selectAll("*").remove();
-            if (data.features[0].geometry.type == 'Point') {
+            if (data.features[0].geometry.type === 'Point') {
                 data.features.forEach(function (d) {
                     drawPoint(d.geometry.coordinates);
                 });
-            } else if (data.features[0].geometry.type == 'MultiPoint') {
+            } else if (data.features[0].geometry.type === 'MultiPoint') {
                 data.features.forEach(function (d) {
                     d.geometry.coordinates.forEach(function (dd) {
                         drawPoint(dd);
@@ -297,9 +295,9 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
                 });
         });
 
-        if (viewname == "feature_collection") {
+        if (viewname === "feature_collection") {
             reconstructFeatureCollection(time);
-        } else if (viewname == "points") {
+        } else if (viewname === "points") {
             reconstructPoints(time);
         } else {
             var url = "https://gws.gplates.org/reconstruct/coastlines_low/?" + "&time=" + time + "&model=SETON2012&avoid_map_boundary";
@@ -310,7 +308,7 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
 
 
     function draw() {
-        if (projName == "orthographic") {
+        if (projName === "orthographic") {
             projection = projOrtho;
         } else {
             projection = projRect;
@@ -332,16 +330,16 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
 
 
     d3.select("#select-function").on("change", function () {
-        if (+this.value == 0) {
+        if (+this.value === 0) {
             $("#RP").hide();
             $("#RFC").hide();
-        } else if (+this.value == 1) {
+        } else if (+this.value === 1) {
             $("#args-textarea").attr('rows', 2);
             $("#args-textarea").val("95,54,142,-33");
             $("#RP").show();
             $("#RFC").hide();
 
-        } else if (+this.value == 2) {
+        } else if (+this.value === 2) {
             $("#args-textarea").attr('rows', 14);
             $("#args-textarea").val(JSON.stringify(default_fc, undefined, 4));
             $("#RP").hide();
@@ -350,13 +348,8 @@ export const reconstructionAndRefresh = (svgRef, viewname) => {
         }
     });
 
-    //d3.select("#recon-time").on("blur", function(){
-    //    reconstruct(+this.value);
-    //});
-
     d3.select('#commit').on('click', function () {
         reconstruct(+$("#recon-time").val());
         $("#time-label").html($("#recon-time").val() + ' Ma');
-        //$("#request-url").hide();
     });
 };

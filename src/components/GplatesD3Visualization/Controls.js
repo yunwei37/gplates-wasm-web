@@ -3,6 +3,7 @@ import { Button, Grid, SelectField, TextField, Flex, SliderField } from '@aws-am
 
 const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
     const [showUrlButton, setShowUrlButton] = React.useState(false);
+    const [featuresText,  setFeaturesText] = React.useState("116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14");
     return (
         <>
             <Grid
@@ -33,6 +34,7 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                 <SelectField
                     label="View"
                     value={viewName}
+                    defaultValue="points"
                     onChange={(event) => setViewName(event.target.value)}
                 >
                     <option value="points">Points</option>
@@ -50,14 +52,14 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                     <option value="equirectangular">Rectangular</option>
                 </SelectField>
 
-                <div>
                     <TextField
                         label="Points"
                         id="args-textarea"
                         rows="2"
                         defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
+                        onChange={(event) => setFeaturesText(event.target.value)}
+                        value={featuresText}
                     />
-                </div>
             </Grid>
 
             <Flex gap="1rem" style={{ marginTop: '1rem' }}>
