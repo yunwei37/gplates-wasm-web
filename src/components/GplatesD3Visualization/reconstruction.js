@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import * as d3 from 'd3';
-import * as topojson from 'topojson';
-export const reconstructionFunction = (svgRef) => {
+import d3 from 'd3';
+export const reconstructionFunction = () => {
 
     var default_fc = {
         "type": "FeatureCollection",
@@ -90,9 +89,10 @@ export const reconstructionFunction = (svgRef) => {
         var path = d3.geo.path().projection(projection);
 
         coastlinsLayer = svg.append('g');
+        console.log('coastlinsLayer',coastlinsLayer)
         geometryLayer = svg.append('g');
         graticuleLayer = svg.append('g');
-
+        
         var graticule = d3.geo.graticule();
         graticuleLayer.append("path")
             .datum(graticule)
@@ -100,26 +100,25 @@ export const reconstructionFunction = (svgRef) => {
             .attr("d", path);
 
         var time = +$('#recon-time').val();
-        var viewname = $('body').attr('data-view-name');
-        if (viewname == "feature_collection") {
+        var viewname = "points";
+        if (viewname === "feature_collection") {
             $("#args-textarea").attr('rows', 14);
             $("#args-textarea").val(JSON.stringify(default_fc, undefined, 4));
             $("#RP").hide();
             $("#RFC").show();
             $("#commit").click();
-        } else if (viewname == "coastlines") {
+        } else if (viewname === "coastlines") {
             $("#args-textarea").hide();
             $("#RP").hide();
             $("#RFC").hide();
             $("#commit").click();
-        } else if (viewname == "points") {
+        } else if (viewname === "points") {
 
         }
 
         reconstruct(time);
 
-        var m0,
-            o0;
+        var m0, o0;
 
         var drag = d3.behavior.drag()
             .on("dragstart", function () {
@@ -128,7 +127,7 @@ export const reconstructionFunction = (svgRef) => {
                 o0 = [-proj[0], -proj[1]];
             })
             .on("drag", function () {
-                if (projName != "orthographic") { return; }
+                if (projName !== "orthographic") { return; }
 
                 if (m0) {
                     var m1 = [d3.event.sourceEvent.pageX, d3.event.sourceEvent.pageY],
@@ -147,7 +146,7 @@ export const reconstructionFunction = (svgRef) => {
         setupZoom();
 
         function setupZoom() {
-            if (projName != "orthographic") {
+            if (projName !== "orthographic") {
                 scale0 = eScale0;
             } else {
                 scale0 = oScale0;
@@ -161,13 +160,13 @@ export const reconstructionFunction = (svgRef) => {
                     projection
                         .scale(zoom.scale());
 
-                    if (projName != "orthographic") {
+                    if (projName !== "orthographic") {
                         projection.translate(zoom.translate());
                     }
 
                     svg.selectAll("path").attr("d", path);
 
-                    if (projName != "orthographic") {
+                    if (projName !== "orthographic") {
                         geometryLayer.selectAll(".pathPoint")
                             .attr("cx", function (d) { return projection(d)[0]; })
                             .attr("cy", function (d) { return projection(d)[1]; })
@@ -187,8 +186,10 @@ export const reconstructionFunction = (svgRef) => {
         var reconstructedPoints = [];
 
         function reconstructPoints(time) {
-            var points = $("#args-textarea").val();
-            var url = "https://gws.gplates.org/reconstruct/reconstruct_points/?points=" + points + "&time=" + time + "&model=SETON2012";
+            var pointsString = $("#args-textarea").val();
+            var pointsArray = pointsString.split(',').map(Number);
+
+            var url = "https://gws.gplates.org/reconstruct/reconstruct_points/?points=" + pointsArray.join(',') + "&time=" + time + "&model=SETON2012";
             $("#request-url").html("<strong>Request URL:</strong> <br> <a href=\"" + url + "\" target=\"_blank\">" + url);
             d3.json(url, function (error, data) {
                 $("#raw-data").html('<strong>Returned Raw Data:</strong> <pre>' + JSON.stringify(data, undefined, 4) + '</pre>');
@@ -202,7 +203,6 @@ export const reconstructionFunction = (svgRef) => {
                 });
             });
         }
-
 
         function drawPoint(d, angle) {
             var _angle = angle || 1;
@@ -275,10 +275,13 @@ export const reconstructionFunction = (svgRef) => {
             });
         }
 
-
         function reconstruct(time) {
             d3.json("https://gws.gplates.org/reconstruct/coastlines_low/?time=" + time + '&apikey=mchin-e494599c-c81b-4972-acbb-c167728c9fb2&avoid_map_boundary', function (error, topology) {
+                
+                console.log(coastlinsLayer);
+                debugger
                 coastlinsLayer.selectAll(".coastline").remove();
+
                 coastlinsLayer.selectAll(".coastline")
                     .data(topology.features)
                     .attr("class", "coastlines")
@@ -325,7 +328,6 @@ export const reconstructionFunction = (svgRef) => {
                 drawPoint(d);
             });
         }
-
 
         d3.select("#select-projection").on("change", function () {
             projName = this.value;
