@@ -1,4 +1,4 @@
-import { Button } from '@aws-amplify/ui-react';
+import { Button, Flex } from '@aws-amplify/ui-react';
 import AI from '../model/AI';
 
 export default function APIKeyDialog({ show, loading, checkAPIKeyValidity }) {
@@ -17,8 +17,8 @@ export default function APIKeyDialog({ show, loading, checkAPIKeyValidity }) {
   }
 
   return (
-    show && (
-      <div>
+    show && 
+      <Flex>
         <h3>Provide your OpenAI's API key</h3>
         Provide your own OpenAI's API key to use the chatbot.{' '}
         <a
@@ -34,7 +34,6 @@ export default function APIKeyDialog({ show, loading, checkAPIKeyValidity }) {
         <Button onClick={saveAPIKey} isLoading={loading}>
           Save
         </Button>
-      </div>
-    )
+      </Flex>
   );
 }

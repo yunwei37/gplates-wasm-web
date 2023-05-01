@@ -30,9 +30,11 @@ function GplatesCodeEditor() {
 		setIsCheckingAPIKey(true);
 		AI.checkAPIKey(localStorage.getItem("api_key")).then((isValid) => {
 			if (isValid) {
+				console.log("api_key valid").
 				AI.initWithKey(localStorage.getItem("api_key"));
 				setShowAPIKeyDialog(false);
 			} else {
+				console.log("api_key invalid").
 				localStorage.removeItem("api_key");
 				setShowAPIKeyDialog(true);
 			}
