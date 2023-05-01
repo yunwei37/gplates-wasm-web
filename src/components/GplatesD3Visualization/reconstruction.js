@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import d3 from 'd3';
-export const reconstructionFunction = () => {
+export const reconstructionFunction = (svgRef, viewname) => {
     d3.select(".svg-container").selectAll("*").remove();
     var default_fc = {
         "type": "FeatureCollection",
@@ -98,7 +98,6 @@ export const reconstructionFunction = () => {
         .attr("d", path);
 
     var time = +$('#recon-time').val();
-    var viewname = "points";
     if (viewname === "feature_collection") {
         $("#args-textarea").attr('rows', 14);
         $("#args-textarea").val(JSON.stringify(default_fc, undefined, 4));
