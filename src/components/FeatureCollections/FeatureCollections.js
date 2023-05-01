@@ -6,82 +6,59 @@ import {
   TableRow,
   TableCell,
   Button,
+  Flex,
   View,
 } from '@aws-amplify/ui-react';
-
-const featureCollectionsData = [
-  {
-    id: 1,
-    name: 'Feature Collection 1',
-    format: 'GPlates',
-  },
-  {
-    id: 2,
-    name: 'Feature Collection 2',
-    format: 'GPlates',
-  },
-  {
-    id: 3,
-    name: 'Feature Collection 3',
-    format: 'GPlates',
-  },
-];
+import FeatureCollectionButton from './FeatureCollectionButton';
+import FeatureDetailsSidebar from './FeatureDetailsSidebar';
+import { featureCollectionsData } from './data';
 
 function FeatureCollections() {
   return (
-    <View padding="1rem">
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Format</TableCell>
-            <TableCell>Actions</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {featureCollectionsData.map((featureCollection) => (
-            <TableRow key={featureCollection.id}>
-              <TableCell>{featureCollection.name}</TableCell>
-              <TableCell>{featureCollection.format}</TableCell>
-              <TableCell>
-                <Button
-                  size="small"
-                  variant="link"
-                  onClick={() => console.log('Upload')}
-                  color="#1E3A8A"
-                >
-                  Upload
-                </Button>
-                <Button
-                  size="small"
-                  variant="link"
-                  onClick={() => console.log('Download')}
-                  color="#1E3A8A"
-                >
-                  Download
-                </Button>
-                <Button
-                  size="small"
-                  variant="link"
-                  onClick={() => console.log('Edit')}
-                  color="#1E3A8A"
-                >
-                  Edit
-                </Button>
-                <Button
-                  size="small"
-                  variant="link"
-                  onClick={() => console.log('View')}
-                  color="#1E3A8A"
-                >
-                  View
-                </Button>
-              </TableCell>
+    <Flex direction="row" padding="1rem">
+      <View padding="1rem">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Format</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </View>
+          </TableHead>
+          <TableBody>
+            {featureCollectionsData.map((featureCollection) => (
+              <TableRow>
+                <TableCell>{featureCollection.name}</TableCell>
+                <TableCell>{featureCollection.format}</TableCell>
+                <TableCell>
+                  <FeatureCollectionButton
+                    label="Upload"
+                    color="#1E3A8A"
+                    onClick={() => console.log('Upload')}
+                  />
+                  <FeatureCollectionButton
+                    label="Download"
+                    color="#1E3A8A"
+                    onClick={() => console.log('Download')}
+                  />
+                  <FeatureCollectionButton
+                    label="Edit"
+                    color="#1E3A8A"
+                    onClick={() => console.log('Edit')}
+                  />
+                  <FeatureCollectionButton
+                    label="View"
+                    color="#1E3A8A"
+                    onClick={() => console.log('View')}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </View>
+      <FeatureDetailsSidebar />
+    </Flex>
   );
 }
 

@@ -53,7 +53,7 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                 </SelectField>
 
                     <TextField
-                        label="Features"
+                        label="Current Features"
                         id="args-textarea"
                         rows="2"
                         defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
