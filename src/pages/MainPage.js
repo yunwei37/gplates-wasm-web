@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { withAuthenticator, Button, Flex, Heading, View, SearchField, Link } from '@aws-amplify/ui-react';
 import Tabs from '../components/Tabs/Tabs';
-import FileManager from '../components/FileManager/FileManager';
+import FeatureCollections from '../components/FeatureCollections/FeatureCollections';
 import GplatesD3Visualization from '../components/GplatesD3Visualization/GplatesD3Visualization';
 import GplatesCodeEditor from '../components/GplatesCodeEditor/GplatesCodeEditor';
 
 function MainPage({ signOut }) {
-  const [activeTab, setActiveTab] = useState('File Manager');
+  const [activeTab, setActiveTab] = useState('Feature Collections');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -23,10 +23,10 @@ function MainPage({ signOut }) {
           </Flex>
         </Flex>
         <View backgroundColor="#E5E7EB" padding="0.5rem">
-          <Tabs tabs={['File Manager', 'Gplates D3 Visualization', 'Gplates Code Editor']} onTabChange={handleTabChange} />
+          <Tabs tabs={['Feature Collections', 'Gplates D3 Visualization', 'Gplates Code Editor']} onTabChange={handleTabChange} />
         </View>
-        <div style={{ display: activeTab === 'File Manager' ? 'block' : 'none' }}>
-          <FileManager />
+        <div style={{ display: activeTab === 'Feature Collections' ? 'block' : 'none' }}>
+          <FeatureCollections />
         </div>
         <div style={{ display: activeTab === 'Gplates D3 Visualization' ? 'block' : 'none' }}>
           <GplatesD3Visualization />
