@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withAuthenticator, Button, Flex, Heading, View, SearchField, Link } from '@aws-amplify/ui-react';
+import { withAuthenticator, Button, Flex, Heading, View, } from '@aws-amplify/ui-react';
 import Tabs from '../components/Tabs/Tabs';
 import FeatureCollections from '../components/FeatureCollections/FeatureCollections';
 import GplatesD3Visualization from '../components/GplatesD3Visualization/GplatesD3Visualization';

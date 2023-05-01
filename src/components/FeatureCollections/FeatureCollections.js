@@ -5,7 +5,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Button,
   Flex,
   View,
 } from '@aws-amplify/ui-react';

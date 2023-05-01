@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex, Button, ButtonGroup } from '@aws-amplify/ui-react';
+import { Button, ButtonGroup } from '@aws-amplify/ui-react';
 
 function Tabs({ tabs, onTabChange }) {
   const [activeTab, setActiveTab] = useState(tabs[0]);
