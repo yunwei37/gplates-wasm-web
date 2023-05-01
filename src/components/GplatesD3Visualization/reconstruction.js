@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import d3 from 'd3';
-export const reconstructionFunction = (svgRef, viewname) => {
+export const reconstructionAndRefresh = (svgRef, viewname) => {
     d3.select(".svg-container").selectAll("*").remove();
     var default_fc = {
         "type": "FeatureCollection",
@@ -359,12 +359,4 @@ export const reconstructionFunction = (svgRef, viewname) => {
         $("#time-label").html($("#recon-time").val() + ' Ma');
         //$("#request-url").hide();
     });
-
-    //d3.select('#show-url').on('click', function(){
-    //    $("#request-url").show();
-    //});
-
-    //d3.select("#show-data").on('click', function(){
-    //    $("#raw-data").show();
-    //});
 };

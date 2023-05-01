@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Grid, SelectField, TextField, TextAreaField, Flex } from '@aws-amplify/ui-react';
+import { Button, Grid, SelectField, TextField, Flex, SliderField } from '@aws-amplify/ui-react';
 
 const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
+    const [showUrlButton, setShowUrlButton] = React.useState(false);
     return (
         <>
             <Grid
@@ -9,12 +10,21 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                 gap="1rem"
                 style={{ marginTop: '1rem' }}
             >
+                <SliderField
+                    id="recon-time-slider"
+                    min={0}
+                    step={1}
+                    max={140}
+                    value={reconTime}
+                    onChange={(event, value) => setReconTime(value)} // Update the onChange handler
+                    label="Time (Slider)"
+                />
                 <TextField
                     id="recon-time"
                     type="number"
                     min="0"
                     step="1"
-                    max="550"
+                    max="140"
                     value={reconTime}
                     onChange={(event) => setReconTime(event.target.value)}
                     label="Time"
@@ -40,19 +50,20 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                     <option value="equirectangular">Rectangular</option>
                 </SelectField>
 
-                <TextAreaField
-                    id="args-textarea"
-                    rows="2"
-                    cols="100"
-                    label="Points"
-                    defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
-                />
+                <div>
+                    <TextField
+                        label="Points"
+                        id="args-textarea"
+                        rows="2"
+                        defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
+                    />
+                </div>
             </Grid>
 
             <Flex gap="1rem" style={{ marginTop: '1rem' }}>
                 <Button id="commit">Refresh Map</Button>
-                <Button id="show-url">Show Request URL</Button>
-                <Button id="show-data">Show Returned Raw Data</Button>
+                {showUrlButton && <Button id="show-url">Show Request URL</Button>}
+                {showUrlButton && <Button id="show-data">Show Returned Raw Data</Button>}
             </Flex>
         </>
     );

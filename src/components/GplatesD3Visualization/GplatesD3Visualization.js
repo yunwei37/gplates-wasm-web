@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Flex } from '@aws-amplify/ui-react';
 import Sidebar from './Sidebar';
-import { reconstructionFunction } from './reconstruction';
+import { reconstructionAndRefresh } from './reconstruction';
 import './GplatesD3Visualization.css';
 
 const GplatesD3Visualization = () => {
@@ -12,10 +12,15 @@ const GplatesD3Visualization = () => {
 
   const svgRef = useRef();
   useEffect(() => {
-    // 调用 reconstructionFunction，并将 svgRef 传递给它
-    console.log('reconstructionFunction');
-    reconstructionFunction(svgRef, viewName);
+    // 调用 reconstructionAndRefresh，并将 svgRef 传递给它
+    console.log('reconstructionAndRefresh');
+    reconstructionAndRefresh(svgRef, viewName);
   }, [viewName]);
+
+  const updateReconTimeAndRefresh = (value) => {
+    setReconTime(value);
+    reconstructionAndRefresh(value);
+  };
 
   return (
     <div className="gplates-d3-visualization">
@@ -37,7 +42,7 @@ const GplatesD3Visualization = () => {
         </Flex>
         <Sidebar
           reconTime={reconTime}
-          setReconTime={setReconTime}
+          setReconTime={updateReconTimeAndRefresh}
           viewName={viewName}
           setViewName={setViewName}
         />
