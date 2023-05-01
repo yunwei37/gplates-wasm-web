@@ -6,7 +6,7 @@ import DataOutput from './DataOutput';
 
 const Sidebar = ({ reconTime, setReconTime, viewName, setViewName }) => {
     return (
-        <View backgroundColor="gray-100" style={{ minWidth: '320px', padding: '1rem' }}>
+        <View style={{  backgroundColor: '#F3F4F6', minWidth: '320px', padding: '1rem' }}>
             <Flex
                 direction="column"
                 alignItems="stretch"

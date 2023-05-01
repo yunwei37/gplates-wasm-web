@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withAuthenticator, Button, Flex, Heading, View } from '@aws-amplify/ui-react';
+import { withAuthenticator, Button, Flex, Heading, View, SearchField, Link } from '@aws-amplify/ui-react';
 import Tabs from '../components/Tabs/Tabs';
 import FileManager from '../components/FileManager/FileManager';
 import GplatesD3Visualization from '../components/GplatesD3Visualization/GplatesD3Visualization';
@@ -14,12 +14,17 @@ function MainPage({ signOut }) {
 
   return (
     <View backgroundColor="white" style={{ minHeight: "100vh" }}>
-      <Flex direction={"column"} gap="1rem">
-        <Flex justifyContent={'space-between'}>
-          <Heading level={1}>GPlate Web</Heading>
-          <Button onClick={signOut}>Sign Out</Button>
+      <Flex direction={"column"} gap="0">
+        <Flex justifyContent={'space-between'} backgroundColor="#1E3A8A" alignItems="center" padding="1rem">
+          <Heading level={1} color="white">GPlate Web</Heading>
+          <Flex gap="1rem">
+            <Button backgroundColor="white" color="#1E3A8A">Help</Button>
+            <Button onClick={signOut} backgroundColor="white" color="#1E3A8A">Sign Out</Button>
+          </Flex>
         </Flex>
-        <Tabs tabs={['File Manager', 'Gplates D3 Visualization', 'Gplates Code Editor']} onTabChange={handleTabChange} />
+        <View backgroundColor="#E5E7EB" padding="0.5rem">
+          <Tabs tabs={['File Manager', 'Gplates D3 Visualization', 'Gplates Code Editor']} onTabChange={handleTabChange} />
+        </View>
         <div style={{ display: activeTab === 'File Manager' ? 'block' : 'none' }}>
           <FileManager />
         </div>
