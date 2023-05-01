@@ -1,0 +1,37 @@
+path {
+    stroke: blue;
+    stroke-width: 0.25px;
+    fill: grey;
+}
+
+circle {
+    fill: red;
+}
+
+svg {
+    border: solid black 1px;
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 20px;
+}
+
+.pathPoint {
+    fill: red;
+}
+
+.graticule {
+    fill: none;
+    stroke: #777;
+    stroke-width: .5px;
+    stroke-opacity: .5;
+}
+
+.RG {
+    fill: none;
+    stroke-width: 1px;
+    stroke: red;
+}
+
+.coastline {
+    fill-opacity: 0.5;
+}
