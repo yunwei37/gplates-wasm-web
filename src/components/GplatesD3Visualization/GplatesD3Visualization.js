@@ -7,6 +7,7 @@ import {
   Grid,
   Heading,
   SelectField,
+  SliderField,
   TextField,
   Text,
   TextAreaField,
@@ -29,15 +30,29 @@ const GplatesD3Visualization = () => {
 
   return (
     <div className="gplates-d3-visualization">
-      <Flex direction="column" alignItems="center">
-        <div style={{ width: '960px', textAlign: 'center', margin: '0 auto' }}>
-          <h1 id="time-label" style={{ fontSize: '3em', margin: '0' }}>
-            140 Ma
-          </h1>
-        </div>
-        <div style={{ width: '962px', overflow: 'hidden', margin: '0 auto' }}>
-          <svg className="svg-container" ref={svgRef} style={{ width: '960px', height: '500px' }}></svg>
-
+      <Flex direction="row">
+        <Flex
+          direction="column"
+          alignItems="center"
+          style={{ flexGrow: 1 }}
+        >
+          <div style={{ width: '960px', textAlign: 'center', margin: '0 auto' }}>
+            <h1 id="time-label" style={{ fontSize: '3em', margin: '0' }}>
+              140 Ma
+            </h1>
+          </div>
+          <div style={{ width: '962px', overflow: 'hidden', margin: '0 auto' }}>
+            <svg className="svg-container" ref={svgRef} style={{ width: '960px', height: '500px' }}></svg>
+          </div>
+        </Flex>
+        <Flex
+          direction="column"
+          alignItems="stretch"
+          justifyContent="space-between"
+          className="sidebar"
+          style={{ minWidth: '320px', padding: '1rem' }}
+        >
+          <Heading level={2}>Controls</Heading>
           <Grid
             columns="repeat(auto-fit, minmax(240px, 1fr))"
             gap="1rem"
@@ -98,9 +113,9 @@ const GplatesD3Visualization = () => {
             <Heading level={2}>Returned Raw Data:</Heading>
             <Text>{/* Display returned raw data content */}</Text>
           </div>
-        </div>
-      </Flex>
-    </div>
+        </Flex >
+      </Flex >
+    </div >
   );
 };
 
