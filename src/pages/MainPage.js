@@ -15,13 +15,19 @@ function MainPage({ signOut }) {
   return (
     <Flex direction={"column"}>
       <Flex justifyContent={'space-between'}>
-        <Heading level={1}>My App</Heading>
+        <Heading level={1}>GPlate Web</Heading>
         <Button onClick={signOut}>Sign Out</Button>
       </Flex>
       <Tabs tabs={['File Manager', 'Gplates D3 Visualization', 'Gplates Code Editor']} onTabChange={handleTabChange} />
-      {activeTab === 'File Manager' && <FileManager />}
-      {activeTab === 'Gplates D3 Visualization' && <GplatesD3Visualization />}
-      {activeTab === 'Gplates Code Editor' && <GplatesCodeEditor />}
+      <div style={{ display: activeTab === 'File Manager' ? 'block' : 'none' }}>
+        <FileManager />
+      </div>
+      <div style={{ display: activeTab === 'Gplates D3 Visualization' ? 'block' : 'none' }}>
+        <GplatesD3Visualization />
+      </div>
+      <div style={{ display: activeTab === 'Gplates Code Editor' ? 'block' : 'none' }}>
+        <GplatesCodeEditor />
+      </div>
     </Flex>
   );
 }

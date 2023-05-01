@@ -1,24 +1,18 @@
 // src/components/GplatesD3Visualization/GplatesD3Visualization.js
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { reconstructionFunction } from './reconstruction';
 import './GplatesD3Visualization.css';
 
 const GplatesD3Visualization = () => {
   const [reconTime, setReconTime] = useState(140);
   const svgRef = useRef();
-  const [loaded, setLoaded] = useState(false);
-  // useEffect(() => {
-  //   // 调用 reconstructionFunction，并将 svgRef 传递给它
-  //   console.log('render')
-  //   setLoaded(true);
-  //   if(!loaded)
-  //     reconstructionFunction(svgRef);
-  // }, []);
-
-  const func = useCallback(() => {
-    reconstructionFunction();
-    setLoaded(true);
-  })
+  useEffect(() => {
+    // 调用 reconstructionFunction，并将 svgRef 传递给它
+    if (svgRef.current) {
+      console.log('reconstructionFunction');
+      reconstructionFunction(svgRef);
+    }
+  }, []);
 
   return (
     <div className="gplates-d3-visualization">
@@ -28,7 +22,7 @@ const GplatesD3Visualization = () => {
         </h1>
       </div>
       <div style={{ width: '962px', overflow: 'hidden', margin: '0 auto' }}>
-        <svg ref={svgRef} style={{ width: '960px', height: '500px' }}></svg>
+        <svg className="svg-container" ref={svgRef} style={{ width: '960px', height: '500px' }}></svg>
         <div style={{ textAlign: 'center' }}>
           <label>Time:</label>
           <input
@@ -55,7 +49,6 @@ const GplatesD3Visualization = () => {
           <textarea id="args-textarea" rows="2" cols="100">116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14</textarea>
           <br />
           <input type="button" id="commit" value="Refresh Map" />
-          <input type="button" id="rrr" value="Fucking INIT" onClick={func} hidden={loaded} />
           <input type="button" id="show-url" value="Show Request URL" />
           <input type="button" id="show-data" value="Show Returned Raw Data" />
         </div>
