@@ -54,7 +54,7 @@ export default function Chat({
             <Button
               onClick={sendMessage}
               aria-label="Send"
-              col
+              backgroundColor={'gray'}
               isLoading={loadingResponse}
               circular
             >
