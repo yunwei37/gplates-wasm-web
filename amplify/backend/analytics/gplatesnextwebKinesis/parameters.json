@@ -1,0 +1,12 @@
+{
+  "kinesisStreamName": "gplatesnextwebKinesis",
+  "kinesisStreamShardCount": 1,
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authPolicyName": "kinesis_amplify_6f2a5c59",
+  "unauthPolicyName": "kinesis_amplify_6f2a5c59"
+}

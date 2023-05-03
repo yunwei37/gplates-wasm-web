@@ -1,4 +1,10 @@
 {
+  "analytics": {
+    "gplatesnextwebKinesis": {
+      "providerPlugin": "awscloudformation",
+      "service": "Kinesis"
+    }
+  },
   "api": {},
   "auth": {
     "gplatesnextweb": {
