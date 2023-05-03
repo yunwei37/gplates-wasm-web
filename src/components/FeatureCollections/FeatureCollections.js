@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableHead,
@@ -13,6 +13,13 @@ import FeatureDetailsSidebar from './FeatureDetailsSidebar';
 import { featureCollectionsData } from './data';
 
 function FeatureCollections() {
+  const [selectedFeature, setSelectedFeature] = useState(null);
+
+  const handleViewClick = (feature) => {
+    setSelectedFeature(feature);
+    console.log('View', feature);
+  };
+
   return (
     <Flex direction="row" padding="1rem">
       <View padding="1rem">
@@ -41,6 +48,11 @@ function FeatureCollections() {
                     onClick={() => console.log('Download')}
                   />
                   <FeatureCollectionButton
+                    label="Delete"
+                    color="#1E3A8A"
+                    onClick={() => console.log('Delete')}
+                  />
+                  <FeatureCollectionButton
                     label="Edit"
                     color="#1E3A8A"
                     onClick={() => console.log('Edit')}
@@ -48,7 +60,7 @@ function FeatureCollections() {
                   <FeatureCollectionButton
                     label="View"
                     color="#1E3A8A"
-                    onClick={() => console.log('View')}
+                    onClick={() => handleViewClick(featureCollection)}
                   />
                 </TableCell>
               </TableRow>
@@ -56,7 +68,7 @@ function FeatureCollections() {
           </TableBody>
         </Table>
       </View>
-      <FeatureDetailsSidebar />
+      <FeatureDetailsSidebar featureData={selectedFeature} />
     </Flex>
   );
 }
