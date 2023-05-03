@@ -1,9 +1,9 @@
 export type AmplifyDependentResourcesAttributes = {
-  "api": {
-    "gplatesnextweb": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
+  "analytics": {
+    "gplatesnextwebKinesis": {
+      "kinesisStreamArn": "string",
+      "kinesisStreamId": "string",
+      "kinesisStreamShardCount": "string"
     }
   },
   "auth": {

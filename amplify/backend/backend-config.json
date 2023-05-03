@@ -37,6 +37,7 @@
       "service": "Cognito"
     }
   },
+  "interactions": {},
   "storage": {
     "s3gplatesnextwebstoragefeatures": {
       "dependsOn": [],
