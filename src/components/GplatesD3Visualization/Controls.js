@@ -1,9 +1,11 @@
 import React from 'react';
-import { Button, Grid, SelectField, TextField, Flex, SliderField } from '@aws-amplify/ui-react';
+import { Button, Grid, SelectField, TextField, Flex, SliderField, Text, TableCell } from '@aws-amplify/ui-react';
 
 const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
     const [showUrlButton, setShowUrlButton] = React.useState(false);
-    const [featuresText,  setFeaturesText] = React.useState("116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14");
+    const [featuresText, setFeaturesText] = React.useState("116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14");
+    const featuresArray = featuresText.split(',').map((coord) => parseFloat(coord.trim())).filter((coord) => !isNaN(coord));
+
     return (
         <>
             <Grid
@@ -51,15 +53,22 @@ const Controls = ({ reconTime, setReconTime, viewName, setViewName }) => {
                     <option value="orthographic">Orthographic</option>
                     <option value="equirectangular">Rectangular</option>
                 </SelectField>
+                <SelectField
+                    label="Current Features"
+                    value={viewName}
+                    onChange={(event) => setViewName(event.target.value)}
+                >
+                    <option value="Muller_etal_2019_Ridegs.gpml">Muller_etal_2019_Ridegs.gpml</option>
+                </SelectField>
 
-                    <TextField
-                        label="Current Features"
-                        id="args-textarea"
-                        rows="2"
-                        defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
-                        onChange={(event) => setFeaturesText(event.target.value)}
-                        value={featuresText}
-                    />
+                <TextField
+                    label="Update Features"
+                    id="args-textarea"
+                    rows="2"
+                    defaultValue="116,39,151,-33, -74, 40, 37, 55, -43,-22, 18, 14"
+                    onChange={(event) => setFeaturesText(event.target.value)}
+                    value={featuresText}
+                />
             </Grid>
 
             <Flex gap="1rem" style={{ marginTop: '1rem' }}>
