@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/earth/get-global-mesh": {
+      "name": "/earth/get-global-mesh",
+      "lambdaFunction": "gplatesnextweb97c1ae63",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

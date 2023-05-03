@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "paths": {
+    "/info/model-names": {
+      "name": "/info/model-names",
+      "lambdaFunction": "gplatesnextweba685cd57",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/info/models": {
+      "name": "/info/models",
+      "lambdaFunction": "gplatesnextweb11c891eb",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/info/model-layers": {
+      "name": "/info/model-layers",
+      "lambdaFunction": "gplatesnextweb679a092a",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

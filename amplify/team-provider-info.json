@@ -19,7 +19,12 @@
         "s3gplatesnextwebstoragefeatures": {}
       },
       "function": {
-        "test": {}
+        "test": {},
+        "reconstructPoints": {},
+        "gplatesnextweb97c1ae63": {},
+        "gplatesnextweba685cd57": {},
+        "gplatesnextweb11c891eb": {},
+        "gplatesnextweb679a092a": {}
       }
     }
   }
