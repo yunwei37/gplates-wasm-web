@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-gplatesnextweb-staging-163146-unauthRole",
       "StackName": "amplify-gplatesnextweb-staging-163146",
       "StackId": "arn:aws:cloudformation:us-east-2:129471412038:stack/amplify-gplatesnextweb-staging-163146/7fcce370-e774-11ed-aebb-063e53c14a9d",
-      "AmplifyAppId": "d2mryqjz9rhl32"
+      "AmplifyAppId": "d2mryqjz9rhl32",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-gplatesnextweb-staging-163146-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
