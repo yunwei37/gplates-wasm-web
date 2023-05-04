@@ -17,11 +17,6 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiName": "string",
       "RootUrl": "string"
     },
-    "reconstruct": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
     "reconstruction": {
       "ApiId": "string",
       "ApiName": "string",

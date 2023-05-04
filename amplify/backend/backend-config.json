@@ -124,6 +124,88 @@
     }
   },
   "interactions": {},
+  "parameters": {
+    "AMPLIFY_function_gplatesnextweb11c891eb_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb11c891eb"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweb11c891eb_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb11c891eb"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweb679a092a_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb679a092a"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweb679a092a_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb679a092a"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweb97c1ae63_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb97c1ae63"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweb97c1ae63_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweb97c1ae63"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweba685cd57_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweba685cd57"
+        }
+      ]
+    },
+    "AMPLIFY_function_gplatesnextweba685cd57_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gplatesnextweba685cd57"
+        }
+      ]
+    },
+    "AMPLIFY_function_reconstructPoints_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reconstructPoints"
+        }
+      ]
+    },
+    "AMPLIFY_function_reconstructPoints_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reconstructPoints"
+        }
+      ]
+    }
+  },
   "storage": {
     "s3gplatesnextwebstoragefeatures": {
       "dependsOn": [],

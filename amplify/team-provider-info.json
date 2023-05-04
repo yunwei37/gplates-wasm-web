@@ -21,11 +21,34 @@
       },
       "function": {
         "test": {},
-        "reconstructPoints": {},
-        "gplatesnextweb97c1ae63": {},
-        "gplatesnextweba685cd57": {},
-        "gplatesnextweb11c891eb": {},
-        "gplatesnextweb679a092a": {}
+        "reconstructPoints": {
+          "deploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+          "s3Key": "amplify-builds/reconstructPoints-37777057524d31454d71-build.zip"
+        },
+        "gplatesnextweb97c1ae63": {
+          "deploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+          "s3Key": "amplify-builds/gplatesnextweb97c1ae63-6e4f7544674c42474e42-build.zip"
+        },
+        "gplatesnextweba685cd57": {
+          "deploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+          "s3Key": "amplify-builds/gplatesnextweba685cd57-4e4474684a32512b5873-build.zip"
+        },
+        "gplatesnextweb11c891eb": {
+          "deploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+          "s3Key": "amplify-builds/gplatesnextweb11c891eb-534b354f6a674538744e-build.zip"
+        },
+        "gplatesnextweb679a092a": {
+          "deploymentBucketName": "amplify-gplatesnextweb-staging-163146-deployment",
+          "s3Key": "amplify-builds/gplatesnextweb679a092a-5677414e4e484f493331-build.zip"
+        }
+      },
+      "api": {
+        "reconstruction": {},
+        "earth": {},
+        "info": {}
+      },
+      "analytics": {
+        "gplatesnextwebKinesis": {}
       }
     }
   }
