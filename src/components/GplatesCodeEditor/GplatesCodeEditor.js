@@ -98,7 +98,7 @@ function GplatesCodeEditor() {
 
 	return (
 		<Flex direction="column" className="Code" style={{ width: '100%', height: "650px" }}>
-			{showAPIKeyDialog && (
+			{false && (
 				<APIKeyDialog
 					show={showAPIKeyDialog}
 					loading={isCheckingAPIKey}
@@ -111,7 +111,7 @@ function GplatesCodeEditor() {
 					<h2>Code Editor</h2>
 					<Editor language="javascript" displayName="JS" value={js} onChange={setJs} />
 				</div>
-				<div style={{ width: '350px' }}>
+				{false && <div style={{ width: '350px' }}>
 					<h2>Chat</h2>
 					<Chat
 						messages={messages}
@@ -120,7 +120,7 @@ function GplatesCodeEditor() {
 						usedTokens={usedTokens}
 						moneySpent={moneySpent}
 					/>
-				</div>
+				</div>}
 			</Flex>
 		</Flex>
 	);
